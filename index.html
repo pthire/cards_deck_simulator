@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+ehtml>
+
+<head>
+    <title>Cards Deck Simulator</title>
+	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+	<meta charset="UTF-8">
+    <meta id="keywords" content="simulator card suit deck magic shuffle aronson  tamariz stebbins joyal calculate trick">
+    <meta id="author" content="Patrice THIRÉ">
+    <meta id="content-language" content="">
+    <script src="simulator.js"></script>
+
+    <style type="text/css">
+
+	#carpet1 {
+		background-color: #2D7D34;
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		width: 1000px;
+		height: 630px;
+		border-radius: 25px;;
+		box-shadow: 0px 0px 18px 7px rgba(50, 50, 50, 0.3);
+	}
+	#carpet2 {
+		background-color: #2D7D34;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		border: 10px solid #ffd24d;
+		width: 970px;
+		height: 600px;
+		border-radius: 30px;;
+	}
+
+	#coinHG {
+		background-color: #2D7D34;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		width: 60px;
+		height: 60px;
+		border-top: 0px solid #ffd24d;
+		border-right: 10px solid #ffd24d;
+		border-left: 0px solid #ffd24d;
+		border-bottom: 10px solid #ffd24d;
+		border-top-left-radius: 25px;;
+		border-top-right-radius: 0px;;
+		border-bottom-left-radius: 0px;;
+		border-bottom-right-radius: 25px;;
+	}
+	#coinHD {
+		background-color: #2D7D34;
+		position: absolute;
+		top: 10px;
+		left: 930px;
+		height: 60px;
+		border-top-left-radius: 0px;;
+		border-top: 0px solid #ffd24d;
+		border-right: 0px solid #ffd24d;
+		border-left: 10px solid #ffd24d;
+		border-bottom: 10px solid #ffd24d;
+		width: 60px;
+		border-top-right-radius: 25px;;
+		border-bottom-left-radius: 25px;;
+		border-bottom-right-radius: 0px;;
+	}
+	#coinBG {
+		background-color: #2D7D34;
+		position: absolute;
+		top: 560px;
+		left: 10px;
+		width: 60px;
+		height: 60px;
+		border-top: 10px solid #ffd24d;
+		border-right: 10px solid #ffd24d;
+		border-left: 0px solid #ffd24d;
+		border-bottom: 0px solid #ffd24d;
+		border-top-left-radius: 0px;;
+		border-top-right-radius: 25px;;
+		border-bottom-left-radius: 25px;;
+		border-bottom-right-radius: 0px;;
+	}
+	#coinBD {
+		background-color: #2D7D34;
+		position: absolute;
+		top: 560px;
+		left: 930px;
+		width: 60px;
+		height: 60px;
+		border-top: 10px solid #ffd24d;
+		border-right: 0px solid #ffd24d;
+		border-left: 10px solid #ffd24d;
+		border-bottom: 0px solid #ffd24d;
+		border-top-left-radius: 25px;;
+		border-top-right-radius: 0px;;
+		border-bottom-left-radius: 0px;;
+		border-bottom-right-radius: 25px;;
+	}
+
+	#logo  {
+		position: absolute;
+		top: 50px;
+		left: 300px;
+	}
+
+	.card {
+		position: absolute;
+	}
+
+	.marked {
+		border: 3px solid #ffd24d;
+		border-radius: 5px;;
+	}
+
+	#main_instructions {
+		position: absolute;
+		top: 350px;
+		left: 320px;
+	}
+
+	#mainUI {
+		position: absolute;
+		top: 500px;
+		left: 205px;
+	}
+
+	#faro_in {
+		position: relative;
+		left: -14px
+	}
+
+	#faro_out {
+		position: relative;
+		left: -14px
+	}
+
+	#reOrderUI {
+		display: none;
+		position: absolute;
+		top: 500px;
+		left: 230px;
+		top: 350px;
+		left: 320px;
+	}
+
+	#cancel {
+		position: relative;
+		left: 138px;
+		top: 30px;
+	}
+
+	.command {
+		margin: 5px;
+	}
+
+	#file {
+		display: none;
+	}
+
+    </style>
+
+</head>
+
+<body onload="init()">
+
+	<div id="carpet1">
+	</div>
+
+	<div id="carpet2">
+		<img class="card" id="c-1" src="images_cards/transparent_card.gif">
+		<img draggable="true" class="card" id="c0">
+		<img draggable="true" class="card" id="c1">
+		<img draggable="true" class="card" id="c2">
+		<img draggable="true" class="card" id="c3">
+		<img draggable="true" class="card" id="c4">
+		<img draggable="true" class="card" id="c5">
+		<img draggable="true" class="card" id="c6">
+		<img draggable="true" class="card" id="c7">
+		<img draggable="true" class="card" id="c8">
+
+		<img draggable="true" class="card" id="c9">
+		<img draggable="true" class="card" id="c10">
+		<img draggable="true" class="card" id="c11">
+		<img draggable="true" class="card" id="c12">
+		<img draggable="true" class="card" id="c13">
+		<img draggable="true" class="card" id="c14">
+		<img draggable="true" class="card" id="c15">
+		<img draggable="true" class="card" id="c16">
+		<img draggable="true" class="card" id="c17">
+		<img draggable="true" class="card" id="c18">
+
+		<img draggable="true" class="card" id="c19">
+		<img draggable="true" class="card" id="c20">
+		<img draggable="true" class="card" id="c21">
+		<img draggable="true" class="card" id="c22">
+		<img draggable="true" class="card" id="c23">
+		<img draggable="true" class="card" id="c24">
+		<img draggable="true" class="card" id="c25">
+		<img draggable="true" class="card" id="c26">
+		<img draggable="true" class="card" id="c27">
+		<img draggable="true" class="card" id="c28">
+
+		<img draggable="true" class="card" id="c29">
+		<img draggable="true" class="card" id="c30">
+		<img draggable="true" class="card" id="c31">
+		<img draggable="true" class="card" id="c32">
+		<img draggable="true" class="card" id="c33">
+		<img draggable="true" class="card" id="c34">
+		<img draggable="true" class="card" id="c35">
+		<img draggable="true" class="card" id="c36">
+		<img draggable="true" class="card" id="c37">
+		<img draggable="true" class="card" id="c38">
+
+		<img draggable="true" class="card" id="c39">
+		<img draggable="true" class="card" id="c40">
+		<img draggable="true" class="card" id="c41">
+		<img draggable="true" class="card" id="c42">
+		<img draggable="true" class="card" id="c43">
+		<img draggable="true" class="card" id="c44">
+		<img draggable="true" class="card" id="c45">
+		<img draggable="true" class="card" id="c46">
+		<img draggable="true" class="card" id="c47">
+		<img draggable="true" class="card" id="c48">
+
+		<img draggable="true" class="card" id="c49">
+		<img draggable="true" class="card" id="c50">
+		<img draggable="true" class="card" id="c51">
+
+	</div>
+
+	<img id="logo" src="images/logo.png" title="Cards Deck Simulator - Version : 1.0">
+
+	<div id="coinHG"></div>
+	<div id="coinHD"></div>
+	<div id="coinBG"></div>
+	<div id="coinBD"></div>
+
+	<input type="file" id="file" name="file"/>
+
+	<img id="main_instructions" src="images/main_instructions.png"></img>
+
+	<div id="mainUI">
+		<img class="command" id="anti_faro_in" src="images/antiInFaro.png"></img>
+		<img class="command" id="faro_in" src="images/inFaro.png"></img>
+		<img class="command" id="reverse" src="images/reverse.png"></img>
+		<img class="command" id="undo" src="images/undo.png"></img>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img class="command" id="read" src="images/open.png"></img>
+		<br>
+		<img class="command" id="anti_faro_out" src="images/antiOutFaro.png"></img>
+		<img class="command" id="faro_out" src="images/outFaro.png"></img>
+		<img class="command" id="shuffle" src="images/shuffle.png"></img>
+		<img class="command" id="reOrder" src="images/reOrder.png"></img>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img class="command" id="save" src="images/save.png"></img>
+	</div>
+
+	<div id="reOrderUI">
+		<img class="command" id="bicycle" src="images/bicycle.png"></img>
+		<img class="command" id="tamariz" src="images/tamariz.png"></img>
+		<img class="command" id="aronson" src="images/aronson.png"></img>
+		<br>
+		<img class="command" id="siStebbins" src="images/siStebbins.png"></img>
+		<img class="command" id="stay" src="images/stay.png"></img>
+		<img class="command" id="joyal" src="images/joyal.png"></img>
+		<br>
+		<img class="command" id="osterlind" src="images/osterlind.png"></img>
+		<img class="command" id="nikola" src="images/nikola.png"></img>
+		<img class="command" id="eight_kings" src="images/eight_kings.png"></img>
+		<br>
+		<img class="command" id="cancel" src="images/cancel.png"></img>
+	</div>
+
+</body>
+</html>
