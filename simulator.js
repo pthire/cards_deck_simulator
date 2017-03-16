@@ -85,6 +85,7 @@ var deck = {
 	newOsterlind : "4HTCTDJSTH9S6C2C7H3H8S4CJDKSAS3S7D5HQCAC5SJHJCQD2D8C6SKH2H6D3DTS8D7C4S9D9C8H5DAD6HAH4DQSQHKC3C9H7S2S5CKD",
 	newNikola : "6D5CKCJH5S9D9SQH3CTCKSAH4DJDKDKH2DQC9CTH8D2CAC7H7C4S7S9H8S6S6C2HASJS4C5HTSADJC4H2S7DQS3H3S8CTD6H5D3DQD8H",
 	newEight_kings : "8CKH3STD2C7H9S5DQC4HAS6DJC8HKS3DTC2H7S9D5CQH4SAD6CJH8SKD3CTH2S7D9C5HQS4DAC6HJS8DKC3HTS2D7C9H5SQD4CAH6SJD",
+	isis : "KSTD3HASKC4D2HACQS2C4HAD2SQC5DAH3SJC6DKH4STC7DQH5S9C8DJH6S8C9DTHQD7C3D9H8S6CJD8H9S5C7S7HTS4C5H2D6HJS3CKD",
 
 	init : function() {
 		var pos;
@@ -117,6 +118,8 @@ var deck = {
 			this.setDeckString(this.newNikola);
 		} else if(order === "eight_kings") {
 			this.setDeckString(this.newEight_kings);
+		} else if(order === "isis") {
+			this.setDeckString(this.isis);
 		}
 	},
 
@@ -564,7 +567,7 @@ function init() {
 		window.document.getElementById("file").click();
 	});
 
-	["bicycle", "siStebbins", "tamariz", "stay", "aronson", "joyal", "osterlind", "nikola", "eight_kings"]
+	["bicycle", "siStebbins", "tamariz", "stay", "aronson", "joyal", "osterlind", "nikola", "eight_kings", "isis"]
 		.forEach(function(order) {
 			document.getElementById(order).addEventListener("click", function() {
 				ui.reOrder(order);
